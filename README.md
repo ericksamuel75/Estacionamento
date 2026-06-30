@@ -1,118 +1,16 @@
 # Estacionamento
-using System;
-using System.Collections.Generic;
+Sistema de gerenciamento de estacionamento desenvolvido em C# (.NET) utilizando conceitos de Programação Orientada a Objetos (POO).
 
-public class Estacionamento
-{
-    private decimal precoInicial;
-    private decimal precoHora;
-    private List<string> veiculos;
+O sistema permite realizar o controle de veículos estacionados, incluindo funcionalidades como adicionar veículos, remover veículos com cálculo automático do valor baseado no tempo de permanência e listar todos os veículos estacionados.
 
-    public Estacionamento(decimal precoInicial, decimal precoHora)
-    {
-        this.precoInicial = precoInicial;
-        this.precoHora = precoHora;
-        this.veiculos = new List<string>();
-    }
+Este projeto foi desenvolvido com o objetivo de praticar lógica de programação, estruturas de repetição, coleções (List), manipulação de dados e princípios básicos de POO.
 
-    public void AdicionarVeiculo()
-    {
-        Console.Write("Digite a placa do veículo: ");
-        string placa = Console.ReadLine();
-
-        veiculos.Add(placa);
-        Console.WriteLine("Veículo adicionado com sucesso!");
-    }
-
-    public void RemoverVeiculo()
-    {
-        Console.Write("Digite a placa do veículo: ");
-        string placa = Console.ReadLine();
-
-        if (veiculos.Contains(placa))
-        {
-            Console.Write("Digite a quantidade de horas estacionado: ");
-            int horas = int.Parse(Console.ReadLine());
-
-            veiculos.Remove(placa);
-
-            decimal valorTotal = precoInicial + (precoHora * horas);
-
-            Console.WriteLine($"Veículo removido. Valor a pagar: R$ {valorTotal}");
-        }
-        else
-        {
-            Console.WriteLine("Veículo não encontrado!");
-        }
-    }
-
-    public void ListarVeiculos()
-    {
-        if (veiculos.Count == 0)
-        {
-            Console.WriteLine("Nenhum veículo estacionado.");
-            return;
-        }
-
-        Console.WriteLine("Veículos estacionados:");
-        foreach (string v in veiculos)
-        {
-            Console.WriteLine("- " + v);
-        }
-    }
-}
-
-using System;
-
-class Program
-{
-    static void Main()
-    {
-        Console.WriteLine("=== SISTEMA DE ESTACIONAMENTO ===");
-
-        Console.Write("Preço inicial: ");
-        decimal precoInicial = decimal.Parse(Console.ReadLine());
-
-        Console.Write("Preço por hora: ");
-        decimal precoHora = decimal.Parse(Console.ReadLine());
-
-        Estacionamento estacionamento = new Estacionamento(precoInicial, precoHora);
-
-        string opcao = "";
-
-        while (opcao != "4")
-        {
-            Console.WriteLine("\n=== MENU ===");
-            Console.WriteLine("1 - Adicionar veículo");
-            Console.WriteLine("2 - Remover veículo");
-            Console.WriteLine("3 - Listar veículos");
-            Console.WriteLine("4 - Sair");
-            Console.Write("Escolha: ");
-
-            opcao = Console.ReadLine();
-
-            switch (opcao)
-            {
-                case "1":
-                    estacionamento.AdicionarVeiculo();
-                    break;
-
-                case "2":
-                    estacionamento.RemoverVeiculo();
-                    break;
-
-                case "3":
-                    estacionamento.ListarVeiculos();
-                    break;
-
-                case "4":
-                    Console.WriteLine("Encerrando sistema...");
-                    break;
-
-                default:
-                    Console.WriteLine("Opção inválida!");
-                    break;
-            }
-        }
-    }
-}
+🚗 Funcionalidades
+Adicionar veículo ao estacionamento
+Remover veículo e calcular valor total
+Listar veículos estacionados
+Menu interativo no console
+🛠 Tecnologias utilizadas
+C#
+.NET
+Programação Orientada a Objetos (POO)
